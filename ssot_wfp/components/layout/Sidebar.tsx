@@ -1,11 +1,12 @@
 // components/layout/Sidebar.tsx
 'use client'
-import { useAuth } from '@/contexts/AuthContext'
+// import { useAuth } from '@/contexts/AuthContext'
 import { Home, Users, UserCheck, FileText, Settings } from 'lucide-react'
 import Link from 'next/link'
+import { CurrentUserAvatar } from '@/components/current-user-avatar'
 
 export default function Sidebar() {
-  const { userProfile } = useAuth()
+  // const { userProfile } = useAuth()
 
   const menuItems = [
     { href: '/dashboard', icon: Home, label: 'Dashboard' },
@@ -18,8 +19,11 @@ export default function Sidebar() {
   return (
     <div className="w-64 bg-gray-800 text-white h-screen">
       <div className="p-4">
-        <h1 className="text-xl font-bold">WFP System</h1>
-        <p className="text-sm text-gray-300">{userProfile?.role}</p>
+      <div className="flex items-center justify-between">
+      <h1>Lumon Industries</h1>
+      <CurrentUserAvatar />
+    </div>
+
       </div>
       <nav className="mt-8">
         {menuItems.map((item) => (
