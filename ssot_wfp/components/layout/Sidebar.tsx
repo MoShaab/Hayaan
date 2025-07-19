@@ -1,12 +1,12 @@
-// components/layout/Sidebar.tsx
+
 'use client'
-// import { useAuth } from '@/contexts/AuthContext'
+import { useAuth } from '@/contexts/AuthContext'
 import { Home, Users, UserCheck, FileText, Settings } from 'lucide-react'
 import Link from 'next/link'
 import { CurrentUserAvatar } from '@/components/current-user-avatar'
 
 export default function Sidebar() {
-  // const { userProfile } = useAuth()
+  const { userProfile } = useAuth()
 
   const menuItems = [
     { href: '/dashboard', icon: Home, label: 'Dashboard' },

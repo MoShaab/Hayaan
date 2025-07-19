@@ -1,12 +1,11 @@
-// app/dashboard/page.tsx
+
 'use client'
-// import { useAuth } from '@/contexts/AuthContext'
+import { useAuth } from '@/contexts/AuthContext'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Users, UserCheck, TrendingUp, Award } from 'lucide-react'
-import { CurrentUserAvatar } from '@/components/current-user-avatar'
 
 export default function Dashboard() {
-  // const { userProfile } = useAuth()
+  const { userProfile } = useAuth()
 
   const stats = [
     { title: 'Total Beneficiaries', value: '1,234', icon: Users, color: 'bg-blue-500' },
