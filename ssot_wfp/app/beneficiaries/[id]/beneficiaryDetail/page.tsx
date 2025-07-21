@@ -1,7 +1,6 @@
 import BeneficiaryDetail from "@/components/beneficiaries/BeneficiaryDetail";
 
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {
-    // In Next.js 15+, params is a Promise
     const { id } = await params;
     
     console.log("Page ID received:", id); // Debug log

@@ -53,8 +53,10 @@ export default function BeneficiaryList() {
           className="max-w-sm"
         />
       </div>
+      <div className="w-full overflow-x-auto">
 
-      <Table>
+      
+      <Table className="w-full min-w-full">
         <TableHeader>
           <TableRow>
             <TableHead>ID</TableHead>
@@ -111,6 +113,7 @@ export default function BeneficiaryList() {
           ))}
         </TableBody>
       </Table>
+      </div>
     </div>
   )
 }

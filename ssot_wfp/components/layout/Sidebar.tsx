@@ -10,8 +10,8 @@ export default function Sidebar() {
 
   const menuItems = [
     { href: '/dashboard', icon: Home, label: 'Dashboard' },
-    { href: '/beneficiaries', icon: Users, label: 'Beneficiaries' },
-    { href: '/mentors', icon: UserCheck, label: 'Mentors' },
+    { href: '/beneficiaries/beneficiaryList', icon: Users, label: 'Beneficiaries' },
+    { href: '/mentors/mentorsList', icon: UserCheck, label: 'Mentors' },
     { href: '/reports', icon: FileText, label: 'Reports' },
     { href: '/settings', icon: Settings, label: 'Settings' }
   ]
@@ -20,7 +20,7 @@ export default function Sidebar() {
     <div className="w-64 bg-gray-800 text-white h-screen">
       <div className="p-4">
       <div className="flex items-center justify-between">
-      <h1>Lumon Industries</h1>
+      <h1>Partner Org Name</h1>
       <CurrentUserAvatar />
     </div>
 

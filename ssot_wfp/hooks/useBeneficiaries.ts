@@ -1,9 +1,9 @@
-// hooks/useBeneficiaries.ts
+
 import { useState, useEffect } from 'react'
 import { beneficiariesService } from '@/lib/database'
 
 export function useBeneficiaries() {
-  const [beneficiaries, setBeneficiaries] = useState([])
+  const [beneficiaries, setBeneficiaries] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 

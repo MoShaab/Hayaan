@@ -6,6 +6,11 @@ const supabase = createClient<Database>(
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
 )
 
+// In your React component or API
+const { data: { user }, error } = await supabase.auth.getUser()
+console.log('Current user:', user)
+console.log('User ID:', user?.id)
+
 export const beneficiariesService = {
   async getAll() {
     
@@ -40,7 +45,10 @@ export const beneficiariesService = {
 
   async create(beneficiary: any) {
     // Generate unique beneficiary ID
-    const beneficiaryId = `BEN${Date.now().toString().slice(-9)}`
+    const year = new Date().getFullYear();
+    const timestamp = Date.now().toString().slice(-6);
+    const beneficiaryId = `BEN${timestamp}/${year}`;
+    
     
     const { data, error } = await supabase
       .from('beneficiaries')
