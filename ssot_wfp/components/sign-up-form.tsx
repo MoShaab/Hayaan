@@ -16,10 +16,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+
 export function SignUpForm({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"div">) {
+  const [fullName, setFullName] = useState("");
+  const [role, setRole] = useState("");
+  const [organization_name, setOrganization_name] = useState("")
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
@@ -40,13 +44,21 @@ export function SignUpForm({
     }
 
     try {
+      
       const { error } = await supabase.auth.signUp({
         email,
         password,
         options: {
-          emailRedirectTo: `${window.location.origin}/protected`,
+         
+          data: {
+            full_name: fullName,
+            email: email,
+            role: role,
+            organization_name: organization_name
+          },
         },
       });
+      
       if (error) throw error;
       router.push("/auth/sign-up-success");
     } catch (error: unknown) {
@@ -66,6 +78,44 @@ export function SignUpForm({
         <CardContent>
           <form onSubmit={handleSignUp}>
             <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-6">
+            <Label htmlFor="full_name">Full Name</Label>
+             <Input
+              id="full_name"
+              required
+              placeholder="Enter full name"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
+            />
+
+          
+            </div>
+
+            <div className="flex flex-col gap-6">
+            <Label htmlFor="organization_name">Organization Name</Label>
+             <Input
+              id="organization_name"
+              required
+              placeholder="Enter Organization Name"
+              value={organization_name}
+              onChange={(e) => setOrganization_name(e.target.value)}
+            />
+
+          
+            </div>
+
+            <div className="flex flex-col gap-6">
+            <Label htmlFor="full_name">Role</Label>
+             <Input
+              id="role"
+              required
+              placeholder="Enter role"
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+            />
+
+          
+            </div>
               <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
                 <Input

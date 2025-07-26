@@ -10,7 +10,7 @@ export default function Dashboard() {
 
   const stats = [
     { title: 'Total Beneficiaries', value: '1,234', icon: Users, color: 'bg-blue-500' },
-    { title: 'Active Mentors', value: '156', icon: UserCheck, color: 'bg-green-500' },
+    // { title: 'Active Mentors', value: '156', icon: UserCheck, color: 'bg-green-500' },
     { title: 'Avg. Self-Reliance Score', value: '67%', icon: TrendingUp, color: 'bg-yellow-500' },
     { title: 'Graduated', value: '89', icon: Award, color: 'bg-purple-500' }
   ]
